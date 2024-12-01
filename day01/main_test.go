@@ -31,7 +31,10 @@ func TestPart1(t *testing.T) {
 func TestPart2(t *testing.T) {
 
 	t.Run("Part 2", func(t *testing.T) {
-
+		assert.Equal(t, 31, similarity(
+			[]int{3, 4, 2, 1, 3, 3},
+			[]int{4, 3, 5, 3, 9, 3},
+		))
 	})
 
 }

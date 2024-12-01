@@ -11,8 +11,11 @@ import (
 
 func main() {
 	b, _ := os.ReadFile("./part1_input.txt")
-	result := distance(load(string(b)))
-	log.Printf("Part 1: %d", result)
+	xs, ys := load(string(b))
+	dist := distance(xs, ys)
+	log.Printf("Part 1: %d", dist)
+	sim := similarity(xs, ys)
+	log.Printf("Part 2: %d", sim)
 }
 
 func load(input string) ([]int, []int) {
@@ -39,4 +42,18 @@ func distance(xs []int, ys []int) int {
 		acc += math.Abs(float64(xs[i] - ys[i]))
 	}
 	return int(acc)
+}
+
+func similarity(xs []int, ys []int) int {
+	ycount := make(map[int]int)
+	for _, y := range ys {
+		ycount[y] += 1
+	}
+
+	acc := 0
+	for _, x := range xs {
+		acc += x * ycount[x]
+	}
+
+	return acc
 }
