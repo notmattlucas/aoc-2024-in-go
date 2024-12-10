@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	b, _ := os.ReadFile("./part1_input.txt")
+	b, _ := os.ReadFile("./part01_input.txt")
 	xs, ys := load(string(b))
 	dist := distance(xs, ys)
 	log.Printf("Part 1: %d", dist)
